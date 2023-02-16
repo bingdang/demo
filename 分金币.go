@@ -63,3 +63,19 @@ func main() {
 	}
 	fmt.Println("还剩:", i)
 }
+
+
+/*
+fei@feis-Mac-mini src % go run main.go
+用户: Emilie,分到了金币: 6
+用户: Matthew,分到了金币: 2
+用户: Augustus,分到了金币: 16
+用户: Heidi,分到了金币: 5
+用户: Peter,分到了金币: 2
+用户: Giana,分到了金币: 4
+用户: Adriano,分到了金币: 7
+用户: Aaron,分到了金币: 5
+用户: Elizabeth,分到了金币: 5
+用户: Sarah,分到了金币: 2
+还剩: 46
+*/

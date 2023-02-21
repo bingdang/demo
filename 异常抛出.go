@@ -27,3 +27,8 @@ func test04() {
 func main() {
 	test04()
 }
+
+/*
+felix@MacBook-Pro project02 % go run main.go
+半径不能为负
+*/

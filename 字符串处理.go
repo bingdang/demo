@@ -115,13 +115,13 @@ func main() {
 
 	//判断是否是回文"上海自来水来自海上"
 	strRing := "上海自来水来自海上"
-	strRingreverse := make([]rune, 0, len(strRing))
 	strRingarray := []rune(strRing)
+	strRingreverse := make([]rune, 0, len(strRingarray))
 	for i := len(strRingarray) - 1; i >= 0; i-- {
 		strRingreverse = append(strRingreverse, strRingarray[i])
 	}
 	if string(strRingarray) == string(strRingreverse) {
-		fmt.Printf("%s，这句话是回文", strRing)
+		fmt.Printf("%s，这句话是回文，切片长度为：%d", strRing, len(strRingreverse))
 	} else {
 		fmt.Printf("%s，这句话不是回文", strRing)
 	}
@@ -132,5 +132,5 @@ func main() {
 输出
 olleh
 A铛饼电
-上海自来水来自海上，这句话是回文
+上海自来水来自海上，这句话是回文，切片长度为：9
 */

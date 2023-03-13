@@ -11,7 +11,7 @@ import (
 二进制json
 	go get -u -v github.com/vmihailenco/msgpack 下载第三方包
 
-作用，二进制json对于计算机处理时 效率比传统josn效率高，但是人类不可读
+作用，二进制json对于计算机处理时 效率比传统json效率高，但是人类不可读
 */
 
 type Human struct {

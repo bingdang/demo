@@ -18,7 +18,9 @@ func modifyName(o interface{}) {
 
 	//获取单个字段
 	fieldbyname := v.FieldByName("Name")
-	fieldbyname.SetString("gebideng")
+	if fieldbyname.Kind() == reflect.String {
+		fieldbyname.SetString("gebideng")
+	}
 }
 
 func main() {

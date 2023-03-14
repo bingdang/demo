@@ -5,6 +5,12 @@ import (
 	"reflect"
 )
 
+/*
+反射相关操作：
+
+
+*/
+
 type P struct {
 	Id   int
 	Name string

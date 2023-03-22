@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 // 2.定义两个对象分别是任务输入管道和右边任务输出管道
@@ -66,15 +67,17 @@ func main() {
 	}(2560, result)
 
 	//4.生成随机数并放入管道
-	var id int
-	for {
-		id++
+	for id := 0; id <= 100000; id++ {
 		r_num := rand.Int()
 		job <- &Job{
 			id:           id,
 			randomNumber: r_num,
 		}
 	}
+
+	//防止main退出 协程没跑完。这里等待10秒
+	<-time.NewTimer(10 * time.Second).C
+
 }
 
 /*

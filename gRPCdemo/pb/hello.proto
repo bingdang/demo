@@ -33,8 +33,19 @@ message HelloReply{
   google.protobuf.Timestamp ts = 2;
 }
 
+message AddRequest{
+  int64 c1 = 1; //1代表字段编号
+  int64 c2 =2;
+}
+
+message AddReply{
+  int64  s = 1;
+  google.protobuf.Timestamp ts = 2;
+}
+
 //定义一个打招呼服务
 service  Greeter{
   //SayHello 方法
   rpc SayHello(HelloRequest) returns (HelloReply){}
+  rpc Add(AddRequest)returns(AddReply){}
 }

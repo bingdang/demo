@@ -125,6 +125,116 @@ func (x *HelloReply) GetTs() *timestamppb.Timestamp {
 	return nil
 }
 
+type AddRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	C1 int64 `protobuf:"varint,1,opt,name=c1,proto3" json:"c1,omitempty"` //1代表字段编号
+	C2 int64 `protobuf:"varint,2,opt,name=c2,proto3" json:"c2,omitempty"`
+}
+
+func (x *AddRequest) Reset() {
+	*x = AddRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pb_hello_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRequest) ProtoMessage() {}
+
+func (x *AddRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pb_hello_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRequest.ProtoReflect.Descriptor instead.
+func (*AddRequest) Descriptor() ([]byte, []int) {
+	return file_pb_hello_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddRequest) GetC1() int64 {
+	if x != nil {
+		return x.C1
+	}
+	return 0
+}
+
+func (x *AddRequest) GetC2() int64 {
+	if x != nil {
+		return x.C2
+	}
+	return 0
+}
+
+type AddReply struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	S  int64                  `protobuf:"varint,1,opt,name=s,proto3" json:"s,omitempty"`
+	Ts *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts,proto3" json:"ts,omitempty"`
+}
+
+func (x *AddReply) Reset() {
+	*x = AddReply{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pb_hello_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddReply) ProtoMessage() {}
+
+func (x *AddReply) ProtoReflect() protoreflect.Message {
+	mi := &file_pb_hello_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddReply.ProtoReflect.Descriptor instead.
+func (*AddReply) Descriptor() ([]byte, []int) {
+	return file_pb_hello_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AddReply) GetS() int64 {
+	if x != nil {
+		return x.S
+	}
+	return 0
+}
+
+func (x *AddReply) GetTs() *timestamppb.Timestamp {
+	if x != nil {
+		return x.Ts
+	}
+	return nil
+}
+
 var File_pb_hello_proto protoreflect.FileDescriptor
 
 var file_pb_hello_proto_rawDesc = []byte{
@@ -138,12 +248,22 @@ var file_pb_hello_proto_rawDesc = []byte{
 	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x6e, 0x73, 0x77, 0x65, 0x72, 0x12,
 	0x2a, 0x0a, 0x02, 0x74, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f,
 	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69,
-	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x02, 0x74, 0x73, 0x32, 0x39, 0x0a, 0x07, 0x47,
-	0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x2e, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c,
-	0x6c, 0x6f, 0x12, 0x10, 0x2e, 0x70, 0x62, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x70, 0x62, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52,
-	0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x67, 0x52, 0x50, 0x43, 0x64, 0x65,
-	0x6d, 0x6f, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x02, 0x74, 0x73, 0x22, 0x2c, 0x0a, 0x0a, 0x41,
+	0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x63, 0x31, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x63, 0x31, 0x12, 0x0e, 0x0a, 0x02, 0x63, 0x32, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x63, 0x32, 0x22, 0x44, 0x0a, 0x08, 0x41, 0x64, 0x64,
+	0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x0c, 0x0a, 0x01, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x01, 0x73, 0x12, 0x2a, 0x0a, 0x02, 0x74, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x02, 0x74, 0x73, 0x32,
+	0x60, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x2e, 0x0a, 0x08, 0x53, 0x61,
+	0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x10, 0x2e, 0x70, 0x62, 0x2e, 0x48, 0x65, 0x6c, 0x6c,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x70, 0x62, 0x2e, 0x48, 0x65,
+	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x25, 0x0a, 0x03, 0x41, 0x64,
+	0x64, 0x12, 0x0e, 0x2e, 0x70, 0x62, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x0c, 0x2e, 0x70, 0x62, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22,
+	0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x67, 0x52, 0x50, 0x43, 0x64, 0x65, 0x6d, 0x6f, 0x2f, 0x70, 0x62,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -158,21 +278,26 @@ func file_pb_hello_proto_rawDescGZIP() []byte {
 	return file_pb_hello_proto_rawDescData
 }
 
-var file_pb_hello_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pb_hello_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pb_hello_proto_goTypes = []interface{}{
 	(*HelloRequest)(nil),          // 0: pb.HelloRequest
 	(*HelloReply)(nil),            // 1: pb.HelloReply
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*AddRequest)(nil),            // 2: pb.AddRequest
+	(*AddReply)(nil),              // 3: pb.AddReply
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pb_hello_proto_depIdxs = []int32{
-	2, // 0: pb.HelloReply.ts:type_name -> google.protobuf.Timestamp
-	0, // 1: pb.Greeter.SayHello:input_type -> pb.HelloRequest
-	1, // 2: pb.Greeter.SayHello:output_type -> pb.HelloReply
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	4, // 0: pb.HelloReply.ts:type_name -> google.protobuf.Timestamp
+	4, // 1: pb.AddReply.ts:type_name -> google.protobuf.Timestamp
+	0, // 2: pb.Greeter.SayHello:input_type -> pb.HelloRequest
+	2, // 3: pb.Greeter.Add:input_type -> pb.AddRequest
+	1, // 4: pb.Greeter.SayHello:output_type -> pb.HelloReply
+	3, // 5: pb.Greeter.Add:output_type -> pb.AddReply
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pb_hello_proto_init() }
@@ -205,6 +330,30 @@ func file_pb_hello_proto_init() {
 				return nil
 			}
 		}
+		file_pb_hello_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pb_hello_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddReply); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -212,7 +361,7 @@ func file_pb_hello_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_pb_hello_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

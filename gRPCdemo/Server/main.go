@@ -8,6 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"net"
+	"time"
 )
 
 /*
@@ -47,7 +48,8 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 
 	//业务逻辑
 	//time.Sleep(time.Millisecond * 50)
-
+	time.Sleep(time.Second * 3)
+	fmt.Println("有人调SayHello啦")
 	select {
 	case <-ctx.Done():
 		return nil, errors.New("time out")
@@ -55,6 +57,20 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 		return &pb.HelloReply{
 			Answer: "Hello " + in.Name,
 			Ts:     timestamppb.Now(),
+		}, nil
+	}
+}
+
+func (s *server) Add(ctx context.Context, in *pb.AddRequest) (*pb.AddReply, error) {
+	fmt.Println("有人调Add啦")
+
+	select {
+	case <-ctx.Done():
+		return nil, errors.New("time out")
+	default:
+		return &pb.AddReply{
+			S:  in.GetC1() + in.GetC2(),
+			Ts: timestamppb.Now(),
 		}, nil
 	}
 }

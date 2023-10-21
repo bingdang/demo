@@ -1,8 +1,19 @@
 syntax = "proto3"; //声明pb版本
 
-option go_package = "gRPCdemo/pb"; //指定go package名称
+option go_package = "gRPCdemo/pb"; //指定go package名称，用于导入
 
 package pb; //pb的包名，防止多个pb文件冲突
+
+/*
+    fei@feideMacBook-Pro protoc % tree ./ -L 2
+    ./
+    ├── bin
+    │   └── protoc
+    └── include
+        └── google
+将下好的protoc bin同级下方上incloud
+ */
+import "google/protobuf/timestamp.proto";
 
 /*
 protoc --go_out=. --go_opt=paths=source_relative \
@@ -19,6 +30,7 @@ message HelloRequest{
 // 包含问候语的响应消息
 message HelloReply{
   string answer = 1; //1代表字段编号
+  google.protobuf.Timestamp ts = 2;
 }
 
 //定义一个打招呼服务
